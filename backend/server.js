@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const authRoutes = require('./routes/auth')
+const analyzeRoutes = require('./routes/analyze')
 
 dotenv.config()
 
@@ -11,6 +12,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/auth', authRoutes)
+app.use('/api/analyze', analyzeRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'Souci kitchen is open!' })
